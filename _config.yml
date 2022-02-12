@@ -3,7 +3,7 @@ show_downloads: true
 title: Keycloak Compose
 description: Example how to run Keycloak 17.0.0 using Docker Compose and PostgreSQL
 google_analytics:
-theme: jekyll-theme-minimal
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-remote-theme
   - jekyll-paginate
