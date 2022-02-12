@@ -12,3 +12,5 @@
 | Url | http://localhost:8080
 | username | `admin`
 | password | `admin`
+
+- [Official Keycloak X guides](https://www.keycloak.org/guides#getting-started)
