@@ -34,7 +34,7 @@ services:
     depends_on:
       - postgres
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:8080"]
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/auth"]
     environment:
       - KC_DB=postgres
       - KC_DB_USERNAME=keycloak
