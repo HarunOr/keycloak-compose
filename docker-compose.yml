@@ -12,7 +12,7 @@ services:
     healthcheck:
       test: ["CMD", "nc", "-zv", "localhost", "5432"]
       timeout: 10s
-      start_period: 10s
+      start_period: 3s
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
