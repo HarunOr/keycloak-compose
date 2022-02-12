@@ -9,6 +9,8 @@ x-logging-json:
 services:
   postgres:
     image: "postgres:${POSTGRES_VERSION}"
+    healthcheck:
+      test: ["CMD", "nc", "-zv", "localhost", "5432"]
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
