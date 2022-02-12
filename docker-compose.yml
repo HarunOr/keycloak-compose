@@ -11,8 +11,6 @@ services:
     image: "postgres:${POSTGRES_VERSION}"
     healthcheck:
       test: ["CMD", "nc", "-zv", "localhost", "5432"]
-      timeout: 10s
-      start_period: 3s
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
@@ -39,8 +37,6 @@ services:
       - postgres
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/auth"]
-      timeout: 10s
-      start_period: 10s
     environment:
       - KC_CACHE=local
       - KC_DB=postgres
