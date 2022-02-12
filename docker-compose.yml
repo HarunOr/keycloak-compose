@@ -1,3 +1,10 @@
+x-logging-json:
+  &json-logging
+  driver: "json-file"
+  options:
+    max-size: "100m"
+    max-file: "1"
+
 services:
   postgres:
     image: "postgres:13.5-alpine"
@@ -8,13 +15,25 @@ services:
       PGPASSWORD: password
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 525M
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - keycloak
+    logging: *json-logging
 
   keycloak:
     image: "quay.io/keycloak/keycloak:17.0.0"
-    restart: unless-stopped
     command: ["start-dev", "--http-relative-path", "/auth"]
+    restart: unless-stopped
     depends_on:
       - postgres
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080"]
     environment:
       - KC_DB=postgres
       - KC_DB_USERNAME=keycloak
@@ -26,4 +45,16 @@ services:
       - KEYCLOAK_ADMIN_PASSWORD=admin
     ports:
       - 8080:8080
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1100M
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - keycloak
+    logging: *json-logging
 
+networks:
+  keycloak:
