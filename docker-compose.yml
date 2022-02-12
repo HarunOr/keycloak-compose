@@ -1,3 +1,4 @@
+---
 x-logging-json:
   &json-logging
   driver: "json-file"
