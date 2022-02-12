@@ -45,7 +45,7 @@ services:
       - KC_DB_URL=jdbc:postgresql://postgres:5432/keycloak
       - KC_METRICS_ENABLED=${KC_METRICS_ENABLED}
       - KC_FEATURES=${KC_FEATURES}
-      - KC_FEATURES_DISABLED=openshift-integration
+      - KC_FEATURES_DISABLED=openshift-integration,jdbc-mariadb,jdbc-mssql,jdbc-oracle,vault
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_PASSWORD}
     ports:
