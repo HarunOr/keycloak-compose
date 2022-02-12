@@ -5,4 +5,6 @@
 - Change directory to `keycloak-x-compose`
 - Up the project using command `docker compose up -d`
 
-Keycloak will be access on the http://localhost:8080 username: `admin` and passsword: `admin`
+Keycloak will be access on the http://localhost:8080
+- username: `admin`
+- password: `admin`
