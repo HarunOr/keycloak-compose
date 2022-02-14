@@ -31,7 +31,7 @@ services:
 
   keycloak:
     image: "quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}"
-    command: ["start-dev", "--http-relative-path", "/auth", "import", "--file", "/tmp/realm.json"]
+    command: ["start-dev", "import", "--file", "/tmp/realm.json", "--http-relative-path", "/auth"]
     restart: unless-stopped
     depends_on:
       - postgres
