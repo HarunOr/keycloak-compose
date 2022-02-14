@@ -1,4 +1,20 @@
 {
+  "users": [
+      {
+        "email": "admin@gmail.com",
+        "enabled": true,
+        "firstName": "admin",
+        "lastName": "admin",
+        "username": "admin",
+        "credentials": [
+          {
+            "temporary": false,
+            "type": "password",
+            "value": "admin"
+          }
+        ]
+      }
+  ],
   "id": "7d06cdf3-987e-48a1-b1ac-fadcaf5dc3bc",
   "realm": "test",
   "notBefore": 0,
