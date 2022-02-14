@@ -8,6 +8,11 @@ scrape_configs:
     static_configs:
       - targets: ['prometheus:9090']
 
+  - job_name: keycloak
+    static_configs:
+      - targets: ['keycloak:8080']
+    metrics_path: /metrics
+
 rule_files:
   - 'prometheus-rules.yml'
 
