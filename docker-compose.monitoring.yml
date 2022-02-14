@@ -31,5 +31,45 @@ services:
       - monitoring
     logging: *json-logging
 
+  grafana:
+    image: "grafana/grafana:${GRAFANA_VERSION}"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--tries=1", "--spider", "http://localhost:3000"]
+    environment:
+      - GF_SERVER_ROOT_URL=${GF_SERVER_ROOT_URL}
+      - GF_PLUGINS_ENABLE_ALPHA=true
+      - GF_PLUGINS_PLUGIN_ADMIN_ENABLED=true
+      - GF_LOG_MODE=console
+      - GF_AUTH_BASIC_ENABLED=true
+      - GF_AUTH_GENERIC_OAUTH_TLS_SKIP_VERIFY_INSECURE=true
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_AUTH_GENERIC_OAUTH_ENABLED=true
+      - GF_AUTH_GENERIC_OAUTH_NAME=Oauth
+      - GF_AUTH_GENERIC_OAUTH_ALLOW_SIGN_UP=true
+      - GF_AUTH_GENERIC_OAUTH_CLIENT_ID=grafana
+      - GF_AUTH_GENERIC_OAUTH_EMAIL_ATTRIBUTE_NAME=email:primary
+      - GF_AUTH_GENERIC_OAUTH_SCOPES=openid profile email
+      - GF_AUTH_GENERIC_OAUTH_AUTH_URL=${KEYCLOAK_URL}/auth/realms/${KEYCLOAK_REALM}/protocol/openid-connect/auth
+      - GF_AUTH_GENERIC_OAUTH_TOKEN_URL=${KEYCLOAK_URL}/auth/realms/${KEYCLOAK_REALM}/protocol/openid-connect/token
+      - GF_AUTH_GENERIC_OAUTH_API_URL=${KEYCLOAK_URL}/auth/realms/${KEYCLOAK_REALM}/protocol/openid-connect/userinfo
+    ports:
+      - 3000:3000
+    volumes:
+      - ./monitoring/prometheus-datasource.yml:/etc/grafana/provisioning/datasources/prometheus-datasource.yml:ro
+      - ./monitoring/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml:ro
+      - ./monitoring/dashboards:/etc/grafana/provisioning/dashboards/dashboards
+      - ./monitoring/home.json:/usr/share/grafana/public/dashboards/home.json:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 1100M
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - monitoring
+    logging: *json-logging
+
 networks:
   monitoring:
