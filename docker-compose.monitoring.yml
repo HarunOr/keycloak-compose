@@ -7,6 +7,12 @@ x-logging-json:
     max-file: "1"
 
 services:
+  keycloak:
+    environment:
+      - KEYCLOAK_IMPORT=/tmp/realm.json
+    volumes:
+      - ./realms/realm.json:/tmp/realm.json:ro
+
   prometheus:
     image: "prom/prometheus:${PROMETHEUS_VERSION}"
     command:
