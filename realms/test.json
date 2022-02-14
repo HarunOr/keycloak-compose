@@ -1,20 +1,4 @@
 {
-  "users": [
-      {
-        "email": "admin@epam.com",
-        "enabled": true,
-        "firstName": "admin",
-        "lastName": "admin",
-        "username": "admin",
-        "credentials": [
-          {
-            "temporary": true,
-            "type": "password",
-            "value": "deltixadmin"
-          }
-        ]
-      }
-  ],
   "id": "7d06cdf3-987e-48a1-b1ac-fadcaf5dc3bc",
   "realm": "test",
   "notBefore": 0,
