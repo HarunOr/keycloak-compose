@@ -59,7 +59,6 @@ services:
       - ./monitoring/prometheus-datasource.yml:/etc/grafana/provisioning/datasources/prometheus-datasource.yml:ro
       - ./monitoring/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml:ro
       - ./monitoring/dashboards:/etc/grafana/provisioning/dashboards/dashboards
-      - ./monitoring/home.json:/usr/share/grafana/public/dashboards/home.json:ro
     deploy:
       resources:
         limits:
