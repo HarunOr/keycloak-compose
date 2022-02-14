@@ -77,3 +77,6 @@ services:
 
 networks:
   monitoring:
+
+volumes:
+  prometheus_data: {}
