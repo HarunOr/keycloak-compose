@@ -1,7 +1,7 @@
 - Install [Docker](https://docs.docker.com/engine/install/) and [Compose](https://docs.docker.com/compose/cli-command/)
 - Clone this repositroy `git clone git@github.com:eabykov/keycloak-compose.git`
 - Change directory to `keycloak-compose`
-- Up the project using command [`docker compose -f docker-compose.yml -f docker-compose.monitoring.yml up -d --wait`](https://docs.docker.com/engine/reference/commandline/compose_up/)
+- Up the project using command `docker compose -f docker-compose.yml -f docker-compose.monitoring.yml up -d --wait`
 
 ## After the launch
 
