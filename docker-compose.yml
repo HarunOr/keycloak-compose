@@ -48,8 +48,11 @@ services:
       - KC_FEATURES_DISABLED=openshift-integration
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_PASSWORD}
+      - KEYCLOAK_IMPORT=/tmp/realm.json
     ports:
       - 8080:8080
+    volumes:
+      - ./realms/realm.json:/tmp/realm.json:ro
     deploy:
       resources:
         limits:
