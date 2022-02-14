@@ -31,7 +31,7 @@ services:
 
   keycloak:
     image: "quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}"
-    command: ["start-dev", "--http-relative-path", "/auth"]
+    command: ["start-dev", "--http-relative-path", "/auth", "import", "--file", "/tmp/realm.json"]
     restart: unless-stopped
     depends_on:
       - postgres
@@ -48,7 +48,6 @@ services:
       - KC_FEATURES_DISABLED=openshift-integration
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_PASSWORD}
-      - KEYCLOAK_IMPORT=/tmp/realm.json
     ports:
       - 8080:8080
     volumes:
