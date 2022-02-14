@@ -19,7 +19,6 @@ services:
     volumes:
       - prometheus_data:/prometheus
       - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-      - ./monitoring/prometheus-rules.yml:/etc/prometheus/prometheus-rules.yml:ro
     deploy:
       resources:
         limits:
