@@ -2,6 +2,11 @@
 - Clone this repositroy `git clone git@github.com:eabykov/keycloak-compose.git`
 - Change directory to `keycloak-compose`
 - Up the project using command `docker compose -f docker-compose.yml -f docker-compose.monitoring.yml up -d --wait`
+- Import realm `test`
+
+```shell
+docker compose exec keycloak /bin/sh -c '/opt/keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user ${KEYCLOAK_ADMIN} --password ${KEYCLOAK_ADMIN_PASSWORD} && /opt/keycloak/bin/kcadm.sh create realms -f /tmp/realm.json'
+```
 
 ## After the launch
 
