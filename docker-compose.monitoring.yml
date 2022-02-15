@@ -41,7 +41,7 @@ services:
       - GF_PLUGINS_PLUGIN_ADMIN_ENABLED=true
       - GF_LOG_MODE=console
       - GF_AUTH_BASIC_ENABLED=true
-      - GF_SECURITY_ADMIN_USER=admin@epam.com
+      - GF_SECURITY_ADMIN_USER=admin@gmail.com
       - GF_AUTH_GENERIC_OAUTH_TLS_SKIP_VERIFY_INSECURE=true
       - GF_AUTH_DISABLE_LOGIN_FORM=true
       - GF_AUTH_GENERIC_OAUTH_ENABLED=true
