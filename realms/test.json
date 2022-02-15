@@ -1,6 +1,7 @@
 {
   "users": [
       {
+        "email": "admin@gmail.com",
         "enabled": true,
         "username": "admin",
         "credentials": [
