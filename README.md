@@ -1,3 +1,5 @@
+## Wait for the https://github.com/keycloak/keycloak/issues/10216 to be fixed
+
 - Install [Docker](https://docs.docker.com/engine/install/) and [Compose](https://docs.docker.com/compose/cli-command/)
 - Clone this repositroy `git clone git@github.com:eabykov/keycloak-compose.git`
 - Change directory to `keycloak-compose`
