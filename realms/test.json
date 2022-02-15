@@ -1,4 +1,17 @@
 {
+  "users": [
+      {
+        "enabled": true,
+        "username": "admin",
+        "credentials": [
+          {
+            "temporary": false,
+            "type": "password",
+            "value": "admin"
+          }
+        ]
+      }
+  ],
   "id": "test",
   "realm": "test",
   "displayName": "test",
