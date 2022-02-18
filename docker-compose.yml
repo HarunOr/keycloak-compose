@@ -31,14 +31,13 @@ services:
 
   keycloak:
     image: "quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}"
-    command: ["start", "--auto-build"]
+    command: ["start-dev"]
     restart: unless-stopped
     depends_on:
       - postgres
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/auth"]
     environment:
-      - KC_HOSTNAME=http://localhost:8080
       - KC_CACHE=local
       - KC_HTTP_RELATIVE_PATH=/auth
       - KC_DB=postgres
