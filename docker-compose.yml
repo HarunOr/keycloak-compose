@@ -38,6 +38,7 @@ services:
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/auth"]
     environment:
+      - KC_HOSTNAME=http://localhost:8080
       - KC_CACHE=local
       - KC_PROXY=edge
       - KC_HTTP_RELATIVE_PATH=/auth
