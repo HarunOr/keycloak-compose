@@ -31,7 +31,7 @@ services:
 
   keycloak:
     image: "quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}"
-    command: ["start-dev", "--http-relative-path", "/auth"]
+    command: ["start", "--auto-build"]
     restart: unless-stopped
     depends_on:
       - postgres
@@ -39,6 +39,8 @@ services:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/auth"]
     environment:
       - KC_CACHE=local
+      - KC_PROXY=edge
+      - KC_HTTP_RELATIVE_PATH=/auth
       - KC_DB=postgres
       - KC_DB_USERNAME=keycloak
       - KC_DB_PASSWORD=password
@@ -48,12 +50,8 @@ services:
       - KC_FEATURES_DISABLED=openshift-integration
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_PASSWORD}
-      - KEYCLOAK_IMPORT=/tmp/realm.json
-      - KC_IMPORT=/tmp/realm.json
     ports:
       - 8080:8080
-    volumes:
-      - ./realms/test.json:/tmp/realm.json:ro
     deploy:
       resources:
         limits:
