@@ -40,7 +40,6 @@ services:
     environment:
       - KC_HOSTNAME=http://localhost:8080
       - KC_CACHE=local
-      - KC_PROXY=passthrough
       - KC_HTTP_RELATIVE_PATH=/auth
       - KC_DB=postgres
       - KC_DB_USERNAME=keycloak
