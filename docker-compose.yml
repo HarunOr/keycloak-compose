@@ -29,6 +29,24 @@ services:
       - keycloak
     logging: *json-logging
 
+  postgres-exporter:
+    image: quay.io/prometheuscommunity/postgres-exporter:0.10.1
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      - DATA_SOURCE_NAME: "postgresql://keycloak:password@postgres:5432/keycloak?sslmode=disable"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 256M
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - keycloak
+    logging: *json-logging
+
   keycloak:
     image: "quay.io/keycloak/keycloak:${KC_VERSION}"
     command: ["start-dev"]
@@ -60,6 +78,7 @@ services:
       - no-new-privileges:true
     networks:
       - keycloak
+      - monitoring
     logging: *json-logging
 
   prometheus:
