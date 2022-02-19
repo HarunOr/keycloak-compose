@@ -7,11 +7,10 @@
 
 ## After the launch
 
-| Parameter | Value 
-|-|-
-| Keycloak | [http://localhost:8080](http://localhost:8080)
-| username | `admin`
-| password | `kcadmin`
+| App | Url | Username | Password 
+|-|-|-|-
+| Keycloak | [http://localhost:8080](http://localhost:8080) | `admin` | `kcadmin`
+| Grafana | [http://localhost:3000](http://localhost:3000) | `admin` | `kcadmin`
 
 ## Commands
 
