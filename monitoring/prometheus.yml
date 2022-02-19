@@ -11,6 +11,7 @@ scrape_configs:
   - job_name: keycloak
     static_configs:
       - targets: ['keycloak:8080']
+    metrics_path: '/auth/metrics'
 
   - job_name: postgres
     static_configs:
