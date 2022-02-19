@@ -5613,8 +5613,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "keycloak",
-  "uid": "keycloak",
+  "title": "keycloak-general",
+  "uid": "keycloak-general",
   "version": 1,
   "weekStart": ""
 }
