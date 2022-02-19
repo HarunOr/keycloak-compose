@@ -132,9 +132,9 @@ services:
     ports:
       - ${GRAFANA_PORT}:3000
     volumes:
-      - ./monitoring-server/prometheus-datasource.yml:/etc/grafana/provisioning/datasources/prometheus-datasource.yml:ro
-      - ./monitoring-server/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml:ro
-      - ./monitoring-server/dashboards:/etc/grafana/provisioning/dashboards/keycloak:ro
+      - ./monitoring/prometheus-datasource.yml:/etc/grafana/provisioning/datasources/prometheus-datasource.yml:ro
+      - ./monitoring/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml:ro
+      - ./monitoring/dashboards:/etc/grafana/provisioning/dashboards/keycloak:ro
     deploy:
       resources:
         limits:
