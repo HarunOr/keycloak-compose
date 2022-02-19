@@ -1,14 +1,14 @@
 {
   "users": [
       {
-        "email": "admin@gmail.com",
+        "email": "admin@admin.com",
         "enabled": true,
         "username": "admin",
         "credentials": [
           {
             "temporary": false,
             "type": "password",
-            "value": "admin"
+            "value": "grafana"
           }
         ]
       }
