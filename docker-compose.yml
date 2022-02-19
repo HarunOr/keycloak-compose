@@ -29,27 +29,6 @@ services:
       - keycloak
     logging: *json-logging
 
-  postgres-exporter:
-    image: "quay.io/prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSION}"
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "--tries=1", "--spider", "http://localhost:9187"]
-    depends_on:
-      - postgres
-    environment:
-      DATA_SOURCE_NAME: "postgresql://keycloak:password@postgres:5432/keycloak?sslmode=disable"
-    deploy:
-      resources:
-        limits:
-          cpus: '0.2'
-          memory: 256M
-    security_opt:
-      - no-new-privileges:true
-    networks:
-      - keycloak
-      - monitoring
-    logging: *json-logging
-
   keycloak:
     image: "quay.io/keycloak/keycloak:${KC_VERSION}"
     command: ["start-dev"]
