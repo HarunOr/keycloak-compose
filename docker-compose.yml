@@ -30,7 +30,7 @@ services:
     logging: *json-logging
 
   postgres-exporter:
-    image: quay.io/prometheuscommunity/postgres-exporter:0.10.1
+    image: "quay.io/prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSION}"
     restart: unless-stopped
     depends_on:
       - postgres
