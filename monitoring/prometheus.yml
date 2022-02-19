@@ -4,12 +4,16 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: system
+  - job_name: prometheus
     static_configs:
       - targets: ['prometheus:9090']
 
   - job_name: keycloak
     static_configs:
       - targets: ['keycloak:8080']
+
+  - job_name: postgres
+    static_configs:
+      - targets: ['postgres-exporter:8080']
 
 rule_files: {}
