@@ -108,3 +108,6 @@ services:
 networks:
   keycloak:
   monitoring:
+
+volumes:
+  prometheus_data: {}
