@@ -55,7 +55,7 @@ services:
     depends_on:
       - postgres
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:8080/auth"]
+      test: ["CMD", "curl", "--fail", "http://localhost:8080"]
     environment:
       - KC_CACHE=local
       - KC_DB=postgres
