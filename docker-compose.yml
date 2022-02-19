@@ -92,6 +92,9 @@ services:
       - '--storage.tsdb.wal-compression'
       - '--web.enable-lifecycle'
     restart: unless-stopped
+    depends_on:
+      - keycloak
+      - postgres-exporter
     healthcheck:
       test: ["CMD", "wget", "--tries=1", "--spider", "http://localhost:9090"]
     volumes:
@@ -126,11 +129,11 @@ services:
       - GF_AUTH_GENERIC_OAUTH_NAME=Oauth
       - GF_AUTH_GENERIC_OAUTH_ALLOW_SIGN_UP=true
       - GF_AUTH_GENERIC_OAUTH_CLIENT_ID=grafana
-      - GF_AUTH_GENERIC_OAUTH_EMAIL_ATTRIBUTE_NAME=email:primary
-      - GF_AUTH_GENERIC_OAUTH_SCOPES=openid profile email
-      - GF_AUTH_GENERIC_OAUTH_AUTH_URL=${KC_URL}/auth/realms/${KC_REALM}/protocol/openid-connect/auth
-      - GF_AUTH_GENERIC_OAUTH_TOKEN_URL=${KC_URL}/auth/realms/${KC_REALM}/protocol/openid-connect/token
-      - GF_AUTH_GENERIC_OAUTH_API_URL=${KC_URL}/auth/realms/${KC_REALM}/protocol/openid-connect/userinfo
+      - GF_AUTH_GENERIC_OAUTH_EMAIL_ATTRIBUTE_NAME=username:primary
+      - GF_AUTH_GENERIC_OAUTH_SCOPES=openid profile username
+      - GF_AUTH_GENERIC_OAUTH_AUTH_URL=${KC_URL}/realms/${KC_REALM}/protocol/openid-connect/auth
+      - GF_AUTH_GENERIC_OAUTH_TOKEN_URL=${KC_URL}/realms/${KC_REALM}/protocol/openid-connect/token
+      - GF_AUTH_GENERIC_OAUTH_API_URL=${KC_URL}/realms/${KC_REALM}/protocol/openid-connect/userinfo
     ports:
       - ${GRAFANA_PORT}:3000
     volumes:
