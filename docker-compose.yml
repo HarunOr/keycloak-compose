@@ -111,6 +111,7 @@ services:
   grafana:
     image: "grafana/grafana:${GRAFANA_VERSION}"
     restart: unless-stopped
+    network_mode: host
     depends_on:
       - prometheus
     healthcheck:
