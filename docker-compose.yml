@@ -48,9 +48,9 @@ services:
       - KC_FEATURES=${KC_FEATURES}
       - KC_FEATURES_DISABLED=openshift-integration
       - KEYCLOAK_ADMIN=admin
-      - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_PASSWORD}
+      - KEYCLOAK_ADMIN_PASSWORD=${KC_PASSWORD}
     ports:
-      - 8080:8080
+      - ${KC_PORT}:8080
     deploy:
       resources:
         limits:
