@@ -114,6 +114,7 @@ services:
   grafana:
     image: "grafana/grafana:${GRAFANA_VERSION}"
     restart: unless-stopped
+    network_mode: host
     depends_on:
       - prometheus
     healthcheck:
@@ -134,8 +135,6 @@ services:
       - GF_AUTH_GENERIC_OAUTH_AUTH_URL=${GRAFANA_KC_URL}/realms/${GRAFANA_KC_REALM}/protocol/openid-connect/auth
       - GF_AUTH_GENERIC_OAUTH_TOKEN_URL=${GRAFANA_KC_URL}/realms/${GRAFANA_KC_REALM}/protocol/openid-connect/token
       - GF_AUTH_GENERIC_OAUTH_API_URL=${GRAFANA_KC_URL}/realms/${GRAFANA_KC_REALM}/protocol/openid-connect/userinfo
-    ports:
-      - ${GRAFANA_PORT}:3000
     volumes:
       - ./monitoring/prometheus-datasource.yml:/etc/grafana/provisioning/datasources/prometheus-datasource.yml:ro
       - ./monitoring/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml:ro
@@ -147,8 +146,6 @@ services:
           memory: 1100M
     security_opt:
       - no-new-privileges:true
-    networks:
-      - monitoring
     logging: *json-logging
 
 networks:
