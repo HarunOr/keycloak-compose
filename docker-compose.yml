@@ -35,7 +35,7 @@ services:
     depends_on:
       - postgres
     environment:
-      - DATA_SOURCE_NAME: "postgresql://keycloak:password@postgres:5432/keycloak?sslmode=disable"
+      DATA_SOURCE_NAME: "postgresql://keycloak:password@postgres:5432/keycloak?sslmode=disable"
     deploy:
       resources:
         limits:
