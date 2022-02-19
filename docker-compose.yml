@@ -62,5 +62,29 @@ services:
       - keycloak
     logging: *json-logging
 
+  prometheus:
+    image: "prom/prometheus:${PROMETHEUS_VERSION}"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=30d'
+      - '--storage.tsdb.wal-compression'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    volumes:
+      - prometheus_data:/prometheus
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 525M
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - monitoring
+    logging: *json-logging
+
 networks:
   keycloak:
+  monitoring:
