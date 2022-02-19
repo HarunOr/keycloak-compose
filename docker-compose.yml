@@ -30,7 +30,7 @@ services:
     logging: *json-logging
 
   keycloak:
-    image: "quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}"
+    image: "quay.io/keycloak/keycloak:${KC_VERSION}"
     command: ["start-dev"]
     restart: unless-stopped
     depends_on:
