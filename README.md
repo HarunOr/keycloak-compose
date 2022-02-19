@@ -11,7 +11,7 @@
 |-|-
 | Keycloak | [http://localhost:8080](http://localhost:8080)
 | username | `admin`
-| password | `admin`
+| password | `kcadmin`
 
 ## Commands
 
