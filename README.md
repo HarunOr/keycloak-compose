@@ -18,3 +18,5 @@
 | `docker compose logs` | Shows logs of containers (use flag `-f` to follow logs)
 | `docker compose down` | Stop and remove containers
 | `docker system prune -a -f` | Remove unused data
+
+Enother good example: https://github.com/owncloud/ocis/tree/master/deployments/examples/ocis_keycloak
