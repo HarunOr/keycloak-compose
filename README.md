@@ -16,5 +16,5 @@
 |-|-
 | `docker stats --no-stream` | Containers resource usage
 | `docker compose logs` | Shows logs of containers (use flag `-f` to follow logs)
-| `docker compose down` | Stop and remove containers
+| `docker compose down -v` | Stop and remove containers
 | `docker system prune -a -f` | Remove unused data
