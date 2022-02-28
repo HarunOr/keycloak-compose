@@ -38,7 +38,6 @@ services:
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080"]
     environment:
-      - KC_HOSTNAME=${KC_HOSTNAME}
       - KC_CACHE=local
       - KC_DB=postgres
       - KC_DB_USERNAME=keycloak
@@ -93,6 +92,7 @@ services:
   grafana:
     image: "grafana/grafana:${GRAFANA_VERSION}"
     restart: unless-stopped
+    network_mode: host
     depends_on:
       - prometheus
     healthcheck:
@@ -117,8 +117,6 @@ services:
       - ./monitoring/prometheus-datasource.yml:/etc/grafana/provisioning/datasources/prometheus-datasource.yml:ro
       - ./monitoring/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml:ro
       - ./monitoring/dashboards:/etc/grafana/provisioning/dashboards/keycloak:ro
-    ports:
-      - ${GRAFANA_PORT}:3000
     deploy:
       resources:
         limits:
