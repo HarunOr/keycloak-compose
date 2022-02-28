@@ -110,9 +110,9 @@ services:
       - GF_AUTH_GENERIC_OAUTH_CLIENT_ID=grafana
       - GF_AUTH_GENERIC_OAUTH_EMAIL_ATTRIBUTE_NAME=email:primary
       - GF_AUTH_GENERIC_OAUTH_SCOPES=openid profile email
-      - GF_AUTH_GENERIC_OAUTH_AUTH_URL=${KC_HOSTNAME}/realms/${GRAFANA_KC_REALM}/protocol/openid-connect/auth
-      - GF_AUTH_GENERIC_OAUTH_TOKEN_URL=${KC_HOSTNAME}/realms/${GRAFANA_KC_REALM}/protocol/openid-connect/token
-      - GF_AUTH_GENERIC_OAUTH_API_URL=${KC_HOSTNAME}/realms/${GRAFANA_KC_REALM}/protocol/openid-connect/userinfo
+      - GF_AUTH_GENERIC_OAUTH_AUTH_URL=${GRAFANA_KC_HOST}/realms/${GRAFANA_KC_REALM}/protocol/openid-connect/auth
+      - GF_AUTH_GENERIC_OAUTH_TOKEN_URL=${GRAFANA_KC_HOST}/realms/${GRAFANA_KC_REALM}/protocol/openid-connect/token
+      - GF_AUTH_GENERIC_OAUTH_API_URL=${GRAFANA_KC_HOST}/realms/${GRAFANA_KC_REALM}/protocol/openid-connect/userinfo
     volumes:
       - ./monitoring/prometheus-datasource.yml:/etc/grafana/provisioning/datasources/prometheus-datasource.yml:ro
       - ./monitoring/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml:ro
