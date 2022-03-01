@@ -50,6 +50,8 @@ services:
       - KEYCLOAK_ADMIN_PASSWORD=${KC_PASSWORD}
     ports:
       - ${KC_PORT}:8080
+    volumes:
+      - ./realms/realm.json:/tmp/realm.json:ro
     deploy:
       resources:
         limits:
