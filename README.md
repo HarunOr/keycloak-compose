@@ -2,7 +2,7 @@
 
 1. Install [Docker](https://docs.docker.com/engine/install/) and [Compose](https://docs.docker.com/compose/cli-command/)
 2. Up the project using command `docker compose up -d --wait`
-3. Import realm by command `docker compose exec -T keycloak import --file /tmp/realm.json`
+3. Import realm by command `docker compose exec keycloak /bin/sh -c '/opt/keycloak/bin/kc.sh import --file /tmp/realm.json'`
 4. Restart keycloak `docker compose restart keycloak`
 
 ## After the launch
