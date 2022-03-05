@@ -5,7 +5,7 @@
 3. Import realm by command `docker compose exec keycloak /bin/sh -c '/opt/keycloak/bin/kc.sh import --file /tmp/realm.json'`
 4. Restart keycloak `docker compose restart keycloak`
 
-## After the launch
+## Links and images
 
 | App | Url | Username | Password 
 |-|-|-|-
