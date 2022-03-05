@@ -11,6 +11,8 @@
 |-|-|-|-
 | Keycloak | [http://localhost:8080](http://localhost:8080) | `admin` | `keycloak`
 
+![Keycloak Grafana Client in the realm test](./images/keycloak.jpg)
+
 | App | Url 
 |-|-
 | Prometheus | [http://localhost:8090](http://localhost:8090)
