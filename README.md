@@ -10,11 +10,20 @@
 | App | Url | Username | Password 
 |-|-|-|-
 | Keycloak | [http://localhost:8080](http://localhost:8080) | `admin` | `keycloak`
+
+| App | Url 
+|-|-
+| Prometheus | [http://localhost:8090](http://localhost:8090)
+
+![Prometheus Targets](./images/prometheus.jpg)
+
+| App | Url | Username | Password 
+|-|-|-|-
 | Grafana | [http://localhost:3000](http://localhost:3000) | `admin` | `grafana`
 
-![Grafana Keycloak Dashboard](./images/image.png)
+![Grafana Keycloak Dashboard](./images/grafana.png)
 
-## Commands
+## Usefull commands
 
 | Command | Discription
 |-|-
