@@ -12,6 +12,8 @@
 | Keycloak | [http://localhost:8080](http://localhost:8080) | `admin` | `keycloak`
 | Grafana | [http://localhost:3000](http://localhost:3000) | `admin` | `grafana`
 
+![Grafana Keycloak Dashboard](./images/image.png)
+
 ## Commands
 
 | Command | Discription
