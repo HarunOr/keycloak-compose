@@ -1,4 +1,4 @@
-## Wait for the https://github.com/keycloak/keycloak/issues/10216 to be fixed
+## Wait for the https://github.com/keycloak/keycloak/milestone/20 release
 
 1. Install [Docker](https://docs.docker.com/engine/install/) and use [v2.3.2](https://github.com/docker/compose/releases/tag/v2.3.2) of the [Compose](https://docs.docker.com/compose/cli-command/)
 2. Up the project using command `docker compose up -d --wait`
