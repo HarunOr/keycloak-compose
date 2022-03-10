@@ -5,21 +5,21 @@
 
 ## Links and images
 
-| App | Url | Username | Password 
+| App | Port | Username | Password 
 |-|-|-|-
-| Keycloak | [http://localhost:8080](http://localhost:8080) | `admin` | `keycloak`
+| Keycloak | 8080 | `admin` | `keycloak`
 
 ![Keycloak Grafana Client in the realm test](./images/keycloak.jpg)
 
-| App | Url 
+| App | Port 
 |-|-
-| Prometheus | [http://localhost:8090](http://localhost:8090)
+| Prometheus | 8090
 
 ![Prometheus Targets](./images/prometheus.jpg)
 
-| App | Url | Username | Password 
+| App | Port | Username | Password 
 |-|-|-|-
-| Grafana | [http://localhost:3000](http://localhost:3000) | `admin` | `grafana`
+| Grafana | 3000 | `admin` | `grafana`
 
 ![Grafana Keycloak Dashboard](./images/grafana.png)
 
