@@ -1,4 +1,4 @@
-1. Install [Docker](https://docs.docker.com/engine/install/) and use [v2.3.3](https://github.com/docker/compose/releases/tag/v2.3.3) of the [Compose](https://docs.docker.com/compose/cli-command/)
+1. Requires [Docker](https://docs.docker.com/engine/install/) and [Compose](https://docs.docker.com/compose/cli-command/) plugin [v2.3.3](https://github.com/docker/compose/releases/tag/v2.3.3)
 2. Up the project using command `docker compose up -d --wait`
 
 ## Links and images
