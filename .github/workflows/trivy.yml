@@ -25,19 +25,16 @@ jobs:
     name: Build
     runs-on: "ubuntu-18.04"
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run Trivy vulnerability scanner
+      - name: Scan Keycloak with Trivy
         uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
         with:
-          image-ref: 'quay.io/keycloak/keycloak:latest'
+          image-ref: 'quay.io/keycloak/keycloak:17.0.0'
           format: 'template'
           template: '@/contrib/sarif.tpl'
-          output: 'trivy-results.sarif'
+          output: 'trivy-keycloak.sarif'
           severity: 'CRITICAL,HIGH'
 
-      - name: Upload Trivy scan results to GitHub Security tab
+      - name: Upload scan Keycloak results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v1
         with:
-          sarif_file: 'trivy-results.sarif'
+          sarif_file: 'trivy-keycloak.sarif'
