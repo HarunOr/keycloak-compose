@@ -25,10 +25,14 @@ jobs:
     name: Build
     runs-on: "ubuntu-18.04"
     steps:
+      - name: Read Keycloak version from .env file
+        id: getversion
+        run: echo "::set-output name=version::$(grep 'KC_VERSION' .env | cut -d'=' -f2)"
+
       - name: Scan Keycloak with Trivy
         uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
         with:
-          image-ref: 'quay.io/keycloak/keycloak:17.0.0'
+          image-ref: 'quay.io/keycloak/keycloak:${{ steps.getversion.outputs.version }}'
           format: 'template'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-keycloak.sarif'
