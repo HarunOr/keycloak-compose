@@ -25,6 +25,9 @@ jobs:
     name: Build
     runs-on: "ubuntu-18.04"
     steps:
+      - name: Checkout GitHub code
+        uses: actions/checkout@v2
+
       - name: Read Keycloak version from .env file
         id: getversion
         run: echo "::set-output name=version::$(grep 'KC_VERSION' .env | cut -d'=' -f2)"
