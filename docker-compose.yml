@@ -30,7 +30,7 @@ services:
     logging: *json-logging
 
   keycloak:
-    image: "quay.io/keycloak/keycloak:${KC_VERSION}"
+    image: "ghcr.io/eabykov/keycloak-postgres:${KC_VERSION}"
     command: ["start-dev", "--import-realm"]
     restart: unless-stopped
     depends_on:
@@ -38,13 +38,6 @@ services:
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080"]
     environment:
-      - KC_DB=postgres
-      - KC_DB_USERNAME=keycloak
-      - KC_DB_PASSWORD=password
-      - KC_DB_URL=jdbc:postgresql://postgres:5432/keycloak
-      - KC_METRICS_ENABLED=true
-      - KC_FEATURES=${KC_FEATURES}
-      - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=${KC_PASSWORD}
     ports:
       - ${KC_PORT}:8080
