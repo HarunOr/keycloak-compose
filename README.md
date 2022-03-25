@@ -1,6 +1,11 @@
 1. Requires [Docker](https://docs.docker.com/engine/install/) with [Compose](https://docs.docker.com/compose/cli-command/) plugin [v2.3.3](https://github.com/docker/compose/releases/tag/v2.3.3)
 2. Up the project using command `docker compose up -d --wait`
 
+## Temporary additional steps
+
+1. Import realm by command `docker compose exec keycloak /bin/sh -c '/opt/keycloak/bin/kc.sh import --file /opt/keycloak/data/import/realm.json'`
+2. Restart keycloak `docker compose restart keycloak`
+
 ## Links and images
 
 | App | Port | Username | Password 
