@@ -40,8 +40,6 @@ services:
       - postgres
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080"]
-      interval: 1s
-      timeout: 10s
     environment:
       - KC_DB=postgres
       - KC_DB_USERNAME=keycloak
