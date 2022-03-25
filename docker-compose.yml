@@ -33,7 +33,8 @@ services:
 
   keycloak:
     image: "quay.io/keycloak/keycloak:${KC_VERSION}"
-    command: ["start-dev", "--import-realm"]
+    command: ["start-dev"]
+#    command: ["start-dev", "--import-realm"] # new command for 18.0.0 keycloak that contain auto import realm at startup
     restart: unless-stopped
     depends_on:
       - postgres
