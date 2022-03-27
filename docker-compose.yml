@@ -33,7 +33,7 @@ services:
 
   keycloak:
     image: "quay.io/keycloak/keycloak:${KC_VERSION}"
-    command: ["start-dev"]
+    command: ["start-dev", "-Dkeycloak.import=/opt/keycloak/data/import/realm.json"]
 #    command: ["start-dev", "--import-realm"] # new command for 18.0.0 keycloak that contain auto import realm at startup
     restart: unless-stopped
     depends_on:
